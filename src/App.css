@@ -1,38 +1,928 @@
-.App {
-  text-align: center;
+html {
+    overflow: scroll;
+    overflow-x: hidden;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+::-webkit-scrollbar {
+    width: 0;
+    /* Remove scrollbar space */
+    background: transparent;
+    /* Optional: just make scrollbar invisible */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.container-fluid {
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.sidebar {
+    padding-top: 8px;
+    cursor: default;
+    position: fixed;
+    width: 280px;
+    overflow-x: hidden;
+    z-index: 1;
+    top: 0;
+    left: 0;
 }
 
-.App-link {
-  color: #61dafb;
+.sidebar-offcanvas {
+    padding-top: 8px;
+    cursor: default;
+    position: fixed;
+    width: 280px;
+    overflow-x: hidden;
+    z-index: 1;
+    top: 0;
+    left: 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.main {
+    margin-left: 280px;
+    position: relative;
+    width: 100%;
+}
+
+.account-logo {
+    border-radius: 50%;
+    background-color: #6ba5e7;
+    color: white;
+    width: 27px;
+    height: 27px;
+    font-size: 10.8px;
+    margin-right: 8px;
+}
+
+.sidebar-title {
+    font-size: 12.5px;
+    padding-left: 13px;
+}
+
+.account-name {
+    font-size: 13.5px;
+}
+
+.account-email {
+    font-size: 10.8px;
+}
+
+.chav-icon {
+    width: 6px;
+    height: 10px;
+    margin-left: 4px;
+}
+
+.search-icon {
+    width: 18px;
+    height: 18px;
+}
+
+.search-icon-container {
+    padding: 9.5px 13px 9.5px 13px;
+    background-color: white;
+}
+
+.search-icon-container:hover {
+    background-color: #fafbfc;
+}
+
+.account-name-email-logo-container {
+    padding-left: 13px;
+    width: 100%;
+}
+
+.account-name-email-logo-container:hover {
+    background-color: #fafbfc;
+}
+
+
+/* My Day in sidebar */
+.my-day-side-sign {
+    width: 2.4px;
+    height: 24px;
+    background-color: #687681;
+    display: none;
+}
+
+.my-day {
+    color: black;
+    padding-left: 7px;
+    height: 44px;
+}
+
+.my-day:hover {
+    background-color: #f4f5f5;
+}
+
+.my-day-text {
+    margin-left: 15px;
+    font-size: 13.7px;
+    font-weight: 600;
+}
+
+.my-day-svg {
+    margin-left: 10px;
+    fill: black;
+}
+
+/* Important in sidebar */
+.important-side-sign {
+    width: 2.4px;
+    height: 24px;
+    background-color: #687681;
+    display: none;
+}
+
+.important {
+    color: black;
+    padding-left: 7px;
+    height: 44px;
+}
+
+.important:hover {
+    background-color: #f4f5f5;
+}
+
+.important-text {
+    margin-left: 17px;
+    font-size: 13.7px;
+    font-weight: 600;
+}
+
+.important-svg {
+    margin-left: 10px;
+    fill: black;
+}
+
+/* Planned in sidebar */
+.planned-side-sign {
+    width: 2.4px;
+    height: 24px;
+    background-color: #687681;
+    display: none;
+}
+
+.planned {
+    color: black;
+    padding-left: 7px;
+    height: 44px;
+}
+
+.planned:hover {
+    background-color: #f4f5f5;
+}
+
+.planned-text {
+    margin-left: 15px;
+    font-size: 13.7px;
+    font-weight: 600;
+}
+
+.planned-svg {
+    margin-left: 10px;
+    fill: black;
+}
+
+/* Tasks in sidebar */
+.tasks-side-sign {
+    width: 2.4px;
+    height: 24px;
+    background-color: #687681;
+    display: none;
+}
+
+.tasks {
+    color: black;
+    padding-left: 7px;
+    height: 44px;
+}
+
+.tasks:hover {
+    background-color: #f4f5f5;
+}
+
+.tasks-text {
+    margin-left: 15px;
+    font-size: 13.7px;
+    font-weight: 600;
+}
+
+.tasks-svg {
+    margin-left: 10px;
+    fill: black;
+}
+
+.spacer-line {
+    width: 250px;
+    height: 0.8px;
+    background-color: #eaebeb;
+    margin-left: 15px;
+    margin-top: 11px;
+    margin-bottom: 11px;
+}
+
+/* List group in sidebar*/
+.list-group-side-sign {
+    width: 2.4px;
+    height: 24px;
+    background-color: #687681;
+    display: none;
+}
+
+.list-groups {
+    color: black;
+    padding-left: 7px;
+    height: 44px;
+}
+
+.list-groups:hover {
+    background-color: #f4f5f5;
+}
+
+.list-group-text {
+    margin-left: 15px;
+    font-size: 13.7px;
+    font-weight: 600;
+}
+
+.list-group-svg {
+    margin-left: 10px;
+}
+
+/* form styles in sidebar */
+.add-to-list-submit-btn {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: white;
+    padding: 2px 10.5px 2px 13.5px;
+}
+
+.add-to-list-input {
+    border: none;
+    outline: none;
+}
+
+.add-to-list-input::placeholder {
+    color: #8d8d8e;
+    font-size: 14px;
+}
+
+/* form error box css */
+.form-control-cognito {
+    position: relative;
+}
+
+.form-control-cognito.error input {
+    border-color: #e74c3c;
+}
+
+.form-control-cognito small {
+    color: #e74c3c;
+    position: absolute;
+    top: 35px;
+    left: 50px;
+    visibility: hidden;
+}
+
+.form-control-cognito.error small {
+    visibility: visible;
+}
+
+/* remove list style */
+.remove-list-container {
+    height: 100%;
+    width: 45px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+}
+
+.remove-list {
+    border-radius: 5px;
+    width: 15px;
+    height: 3.1px;
+    background-color: #797979;
+}
+
+.remove-list-container:hover .remove-list {
+    background-color: #e74c3c;
+}
+
+.remove-list-container-main:hover .remove-list-container {
+    visibility: visible;
+}
+
+.remove-list-show {
+    visibility: visible;
+}
+/* main partition styles */
+.my-day-container,
+.important-container,
+.planned-container,
+.tasks-container,
+.list-group-container {
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-left: 50px;
+}
+
+.my-day-container {
+    background-image: url(../src/components/MyDay/microsoft-to-do-wallpapers-1.jpg);
+}
+
+.important-container {
+    background-color: #d96282;
+}
+
+.planned-container {
+    background-color: #d4f1ef;
+}
+
+.tasks-container {
+    background-color: #697dcd;
+}
+
+.list-group-container {
+    background-image: url(../src/components/ListGroup/list-group-image.jpg);
+}
+
+.my-day-title,
+.important-title,
+.tasks-title,
+.list-group-title {
+    color: white;
+    font-size: 28px;
+    font-weight: 600;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.planned-title {
+    color: #166f6b;
+    font-size: 28px;
+    font-weight: 600;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.my-day-date {
+    color: white;
+    font-size: 13.5px;
+    font-weight: normal;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.my-day-task-container,
+.important-task-container,
+.planned-task-container,
+.tasks-task-container,
+.list-group-task-container {
+    background-color: white;
+    border-radius: 5px;
+    width: 100%;
+    margin-bottom: 0.1rem;
+    border: none;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+.my-day-task-container:hover,
+.important-task-container:hover,
+.planned-task-container:hover,
+.tasks-task-container:hover,
+.list-group-task-container:hover {
+    background-color: #f5f5f5;
+}
+
+.my-day-task-svg,
+.planned-task-svg,
+.tasks-task-svg,
+.list-group-task-svg {
+    right: 25px;
+    fill: #9b9b9b;
+    cursor: pointer;
+}
+
+.extra-my-day-task-svg {
+    right: 25px;
+    fill: #c14c6c;
+    cursor: pointer;
+}
+
+.important-task-svg {
+    right: 25px;
+    fill: #c14c6c;
+    cursor: default;
+}
+
+.my-day-task-svg:hover,
+.planned-task-svg:hover,
+.tasks-task-svg:hover,
+.list-group-task-svg:hover {
+    fill: black;
+}
+
+.my-day-task-name,
+.important-task-name,
+.planned-task-name,
+.tasks-task-name,
+.list-group-task-name {
+    font-size: 14px;
+}
+
+.my-day-task-group,
+.important-task-group,
+.planned-task-group,
+.tasks-task-group,
+.list-group-task-group {
+    font-size: 12.5px;
+    color: #737373;
+}
+
+/* checkbox css */
+.my-day-task-inputCheck-container,
+.important-task-inputCheck-container,
+.planned-task-inputCheck-container,
+.tasks-task-inputCheck-container,
+.list-group-task-inputCheck-container {
+    display: block;
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 22px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.my-day-task-inputCheck-container input,
+.important-task-inputCheck-container input,
+.planned-task-inputCheck-container input,
+.tasks-task-inputCheck-container input,
+.list-group-task-inputCheck-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 24px;
+    width: 24px;
+    background-color: #ffffff;
+    border-radius: 50px;
+    border: 3px solid #737373;
+}
+
+/* On mouse-over, add a grey background color */
+.my-day-task-inputCheck-container:hover input~.checkmark,
+.important-task-inputCheck-container:hover input~.checkmark,
+.planned-task-inputCheck-container:hover input~.checkmark,
+.tasks-task-inputCheck-container:hover input~.checkmark,
+.list-group-task-inputCheck-container:hover input~.checkmark {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.my-day-task-inputCheck-container input:checked~.checkmark,
+.important-task-inputCheck-container input:checked~.checkmark,
+.planned-task-inputCheck-container input:checked~.checkmark,
+.tasks-task-inputCheck-container input:checked~.checkmark,
+.list-group-task-inputCheck-container input:checked~.checkmark {
+    background-color: #737373;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.my-day-task-inputCheck-container input:checked~.checkmark:after,
+.important-task-inputCheck-container input:checked~.checkmark:after,
+.planned-task-inputCheck-container input:checked~.checkmark:after,
+.tasks-task-inputCheck-container input:checked~.checkmark:after,
+.list-group-task-inputCheck-container input:checked~.checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.my-day-task-inputCheck-container .checkmark:after,
+.important-task-inputCheck-container .checkmark:after,
+.planned-task-inputCheck-container .checkmark:after,
+.tasks-task-inputCheck-container .checkmark:after,
+.list-group-task-inputCheck-container .checkmark:after {
+    left: 6px;
+    top: 1.5px;
+    width: 7px;
+    height: 12px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    border-radius: 1px;
+}
+
+.task-complete-underline {
+    text-decoration: line-through;
+}
+
+/* my day add to do form style */
+.my-day-add-to-do-plus,
+.important-add-to-do-plus,
+.tasks-add-to-do-plus,
+.list-group-add-to-do-plus {
+    fill: white;
+}
+
+.planned-add-to-do-plus {
+    fill: #166f6b;
+}
+
+.my-day-add-to-do-form,
+.important-add-to-do-form,
+.planned-add-to-do-form,
+.tasks-add-to-do-form,
+.list-group-add-to-do-form {
+    position: absolute;
+    z-index: 99;
+    left: 0;
+    bottom: 25px;
+    right: 42px;
+    left: 42px;
+}
+
+.my-day-add-to-do-list-input,
+.important-add-to-do-list-input,
+.planned-add-to-do-list-input,
+.tasks-add-to-do-list-input,
+.list-group-add-to-do-list-input {
+    width: 100%;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    color: white;
+    padding-left: 57px;
+    font-size: 15px;
+}
+
+.planned-add-to-do-list-input {
+    color: #166f6b;
+}
+
+.my-day-add-to-do-list-input {
+    background-color: rgba(118, 106, 100, 0.5);
+}
+
+.important-add-to-do-list-input {
+    background-color: rgba(193, 86, 108, 0.5);
+}
+
+.planned-add-to-do-list-input {
+    background-color: rgba(193, 233, 230, 0.5);
+}
+
+.tasks-add-to-do-list-input {
+    background-color: rgb(92,112,190, 0.5);
+}
+
+.input-after,
+.important-input-after,
+.planned-input-after,
+.tasks-input-after,
+.list-group-input-after {
+    position: absolute;
+    z-index: -99;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 54.5px;
+    opacity: 60%;
+    border-radius: 5px;
+}
+
+.input-after {
+    background-color: #766a64;
+    filter: contrast(20);
+}
+
+.important-input-after {
+    background-color: #766a64;
+    filter: contrast(5);
+    opacity: 30%;
+}
+
+.planned-input-after {
+    background-color: #b8e0dd;
+    filter: contrast(1);
+    opacity: 80%;
+}
+
+.tasks-input-after {
+    background-color: #4a5c9c;
+    filter: contrast(0.9);
+    opacity: 77%;
+}
+
+.list-group-add-to-do-list-input {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.list-group-input-after {
+    background-color: #766a64;
+    filter: contrast(20);
+}
+
+.my-day-add-to-do-list-input::placeholder,
+.important-add-to-do-list-input::placeholder,
+.tasks-add-to-do-list-input::placeholder,
+.list-group-add-to-do-list-input::placeholder {
+    color: white;
+}
+
+.planned-add-to-do-list-input::placeholder {
+    color: #166f6b;
+}
+
+.my-day-add-to-do-list-input:focus::placeholder,
+.important-add-to-do-list-input:focus::placeholder,
+.planned-add-to-do-list-input:focus::placeholder,
+.tasks-add-to-do-list-input:focus::placeholder,
+.list-group-add-to-do-list-input:focus::placeholder {
+    visibility: hidden;
+}
+
+.my-day-add-to-do-submit,
+.important-add-to-do-submit,
+.planned-add-to-do-submit,
+.tasks-add-to-do-submit,
+.list-group-add-to-do-submit {
+    border: none;
+    outline: none;
+    background-color: inherit;
+    cursor: pointer;
+    z-index: 99;
+}
+
+.my-day-image-container {
+    width: 280px;
+    height: 290px;
+    border-radius: 10px;
+    background-color: rgba(118, 106, 100, 0.5);
+    z-index: 99;
+}
+
+.my-day-image-after {
+    top: 0;
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #45585f;
+    opacity: 45%;
+    filter: contrast(20);
+    border-radius: 10px;
+}
+
+.planned-image-container,
+.tasks-image-containe {
+    width: 280px;
+    height: 290px;
+}
+
+.my-day-image-title,
+.my-day-image-content,
+.important-image-content,
+.tasks-image-content {
+    color: white;
+}
+
+.planned-image-content {
+    color: #166f6b;
+}
+
+.my-day-image-title {
+    font-size: 19px;
+    font-weight: bolder;
+    margin-top: 20px;
+}
+
+.my-day-image-content,
+.important-image-content,
+.planned-image-content,
+.tasks-image-content {
+    font-size: 14.5px;
+}
+
+.my-day-image,
+.important-image,
+.tasks-image {
+    margin-top: 45px;
+    width: 120px;
+}
+
+.my-day-image-main-container,
+.important-image-main-container,
+.planned-image-main-container,
+.tasks-image-main-container {
+    top: 135px;
+    left: 0;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.extra-my-day-image-container,
+.extra-important-image-container,
+.extra-planned-image-container,
+.extra-tasks-image-container {
+    display: none;
+}
+
+.search-tasks-container,
+.my-day-tasks-container,
+.important-tasks-container,
+.planned-tasks-container,
+.tasks-tasks-container,
+.list-group-tasks-container {
+    border-radius: 5px;
+    overflow-y: scroll;
+    height: 79%;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+/* completed collapse btn css */
+.completed-collapse-btn,
+.plannedToday-completed-collapse-btn,
+.plannedTomorrow-completed-collapse-btn,
+.plannedNextWeek-completed-collapse-btn,
+.tasks-completed-collapse-btn,
+.list-group-completed-collapse-btn {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    padding: 5px 13px 5px 30px;
+    color: white;
+    border-radius: 5px;
+    background-color: #4e585d;
+    position: relative;
+    margin-top: 15px;
+    font-size: 14px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    z-index: 9999;
+    display: none;
+}
+
+.plannedToday-completed-collapse-btn,
+.plannedTomorrow-completed-collapse-btn,
+.plannedNextWeek-completed-collapse-btn {
+    display: block;
+    background-color: #c4e6e4;
+    color: #166f6b;
+}
+
+.completed-collapse-btn:hover,
+.important-completed-collapse-btn:hover,
+.list-group-completed-collapse-btn:hover {
+    background-color: #282c2f;
+}
+
+.tasks-completed-collapse-btn {
+    display: block;
+    background-color: #5c70be;
+}
+
+.plannedToday-completed-collapse-btn:hover,
+.plannedTomorrow-completed-collapse-btn:hover,
+.plannedNextWeek-completed-collapse-btn:hover {
+    background-color: #b4dad8;
+}
+
+.tasks-completed-collapse-btn:hover {
+    background-color: #5161a1;
+}
+
+.completed-svg,
+.list-group-completed-svg {
+    fill: white;
+    position: absolute;
+    left: 5px;
+}
+
+.plannedToday-completed-svg {
+    fill: #166f6b;
+    position: absolute;
+    left: 5px;
+}
+
+.plannedTomorrow-completed-svg {
+    fill: #166f6b;
+    position: absolute;
+    left: 5px;
+}
+
+.plannedNextWeek-completed-svg {
+    fill: #166f6b;
+    position: absolute;
+    left: 5px;
+}
+
+.tasks-completed-svg {
+    fill: white;
+    position: absolute;
+    left: 5px;
+}
+
+.extra-completed {
+    display: block;
+}
+
+.task-counter {
+    color: #737373;
+    font-size: 14px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: absolute;
+    right: 40px;
+}
+
+.main-search,
+.main-myDay,
+.main-important,
+.main-planned,
+.main-tasks,
+.main-listGroup {
+    display: none;
+}
+
+.extra-main-show {
+    display: block;
+}
+/* main list remove */
+.main-list-remove {
+    right: 55px;
+    border: none;
+    outline: none;
+    padding: 7px 15px 7px 15px;
+    border-radius: 5px;
+    color: white;
+    background-color: #dc3545;
+    transition: 200ms;
+    display: none;
+}
+
+.main-list-remove:hover {
+    background-color: #bb2d3b;
+}
+
+.extra-main-list-remove {
+    display: block;
+}
+
+.collapse-side-menue {
+    position:absolute;
+    right: 25px;
+    top: 50px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    padding: 5px 10px 5px 10px;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+    display: none;
+}
+
+.important:focus, .main-important:focus .important {
+    color: #c14c6c;
+    background-color: #fbf4f6;
+}
+
+@media screen and (max-width: 768px) {
+    .sidebar {
+        display: none;
+    }
+
+    .main {
+        margin-left: 0;
+    }
+
+    .collapse-side-menue {
+        display: block;
+    }
+
+    .search-form {
+        padding: 0px 55px 0px 55px;
+    }
 }
