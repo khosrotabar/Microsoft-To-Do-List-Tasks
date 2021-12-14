@@ -17,6 +17,7 @@
 ### Tools used:
 - React
 - Redux/ React Redux / Redux toolkit
+- Bootstrap 5
 
 ### How to use in vs code:
 ```bash
